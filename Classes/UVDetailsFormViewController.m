@@ -107,8 +107,13 @@
     UILabel *label = [UILabel new];
     label.tag = LABEL;
     label.font = [UIFont systemFontOfSize:13];
-    if (IOS7) {
-        label.textColor = label.tintColor;
+    UVStyleSheet *styles = [UVStyleSheet instance];
+    if (styles.tintColor) {
+        label.textColor = styles.tintColor;
+    } else {
+        if (IOS7) {
+            label.textColor = label.tintColor;
+        }
     }
     UILabel *value = [UILabel new];
     value.tag = VALUE;
@@ -139,8 +144,13 @@
     UILabel *label = [UILabel new];
     label.tag = LABEL;
     label.font = [UIFont systemFontOfSize:13];
-    if (IOS7) {
-        label.textColor = label.tintColor;
+    UVStyleSheet *styles = [UVStyleSheet instance];
+    if (styles.tintColor) {
+        label.textColor = styles.tintColor;
+    } else {
+        if (IOS7) {
+            label.textColor = label.tintColor;
+        }
     }
     UITextField *text = [UITextField new];
     text.tag = TEXT;

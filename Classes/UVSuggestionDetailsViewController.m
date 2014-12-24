@@ -338,8 +338,13 @@
 
 - (void)initCellForAddComment:(UITableViewCell *)cell indexPath:(NSIndexPath *)indexPath {
     cell.textLabel.text = NSLocalizedStringFromTableInBundle(@"Add a comment", @"UserVoice", [UserVoice bundle], nil);
-    if (IOS7) {
-        cell.textLabel.textColor = cell.textLabel.tintColor;
+    UVStyleSheet *styles = [UVStyleSheet instance];
+    if (styles.tintColor) {
+        cell.textLabel.textColor = styles.tintColor;
+    } else {
+        if (IOS7) {
+            cell.textLabel.textColor = cell.textLabel.tintColor;
+        }
     }
 }
 
